@@ -1,7 +1,7 @@
 // Interfaces
 interface IButtonProps {
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: () => void | void;
   size?: "small" | "medium";
   className?: string;
 }

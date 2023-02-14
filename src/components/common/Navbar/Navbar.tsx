@@ -1,6 +1,7 @@
 // Imports
 import { useRouter } from "next/router";
 import Button from "../Button/Button";
+import Link from "next/link";
 
 // Functions
 const Navbar = () => {
@@ -11,10 +12,14 @@ const Navbar = () => {
     <nav className="flex items-center justify-between">
       {pathname === "/" && <h3>Stageblog CanvasHeroes</h3>}
       {pathname === "/" && (
-        <Button onClick={() => router.push("/information")}>Informatie</Button>
+        <Link href="/information">
+          <Button>{"Informatie"}</Button>
+        </Link>
       )}
       {pathname === "/information" && (
-        <Button onClick={() => router.push("/")}>&#60;&minus; Terug</Button>
+        <Link href="/">
+          <Button>{"<- Terug"}</Button>
+        </Link>
       )}
     </nav>
   );
