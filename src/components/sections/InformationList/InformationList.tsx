@@ -1,4 +1,5 @@
 // Imports
+import { IInformationListItemProps } from "./InformationList.types";
 
 // Functions
 const InformationList = () => {

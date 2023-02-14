@@ -5,3 +5,4 @@ interface IInformationListItemProps {
 }
 
 // Exports
+export type { IInformationListItemProps };
