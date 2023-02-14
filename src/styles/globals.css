@@ -37,7 +37,11 @@
 /* Components Layer */
 @layer components {
     .btn {
-        @apply border border-black py-4 px-6 rounded-full
+        @apply border border-black py-4 px-6 rounded-full w-fit
+    }
+
+    .tag {
+        @apply border border-black py-2 px-4 rounded-full w-fit
     }
 }
 

@@ -9,7 +9,7 @@ const AppLayout = ({ children }: IAppLayoutProps) => {
       <header className="page-width">
         <Navbar />
       </header>
-      <main className="page-width">{children}</main>
+      <main className="page-width py-16">{children}</main>
       <footer className="page-width">
         <div>Footer</div>
       </footer>
