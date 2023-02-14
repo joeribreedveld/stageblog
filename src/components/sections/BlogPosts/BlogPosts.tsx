@@ -40,7 +40,7 @@ const BlogPosts = () => {
 const BlogPost = ({ title, date, tags, description }: IBlogPostProps) => {
   return (
     <li>
-      <article className="flex flex-col gap-16 border-b border-gray-200 pb-8 md:flex-row">
+      <article className="flex flex-col gap-8 border-b border-gray-200 pb-8 md:flex-row md:gap-16">
         <section className="md:w-1/3">
           <p className="text-gray-500">{date}</p>
         </section>

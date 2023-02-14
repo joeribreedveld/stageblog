@@ -4,23 +4,14 @@
 const InformationList = () => {
   return (
     <section>
-      <ul>
+      <ul className="flex flex-col gap-8">
+        <InformationListItem title="Naam" value="Joeri Breedveld" />
         <InformationListItem
-          title="Information list item title"
-          value="Information list item value"
+          title="E-mailadres"
+          value="joeri.breedveld123@gmail.com"
         />
-        <InformationListItem
-          title="Informaawdawdawdtion list item title"
-          value="Informationawd list item value"
-        />
-        <InformationListItem
-          title="Informatioawdawdawdn list item title"
-          value="Information list item value"
-        />
-        <InformationListItem
-          title="Information list item title"
-          value="Information lisawdawdwat item value"
-        />
+        <InformationListItem title="Telefoonnummer" value="+31 6 80056004" />
+        <InformationListItem title="Bedrijfsnaam" value="CanvasHeroes" />
       </ul>
     </section>
   );
@@ -28,11 +19,11 @@ const InformationList = () => {
 
 const InformationListItem = ({ title, value }: IInformationListItemProps) => {
   return (
-    <li className="flex gap-16 border-b border-gray-200 py-8">
-      <section className="w-1/3">
+    <li className="flex flex-col gap-4 border-b border-gray-200 pb-8 md:flex-row md:gap-16">
+      <section className="md:w-1/3">
         <p className="text-gray-500">{title}</p>
       </section>
-      <section className="w-2/3">
+      <section className="md:w-2/3">
         <p>{value}</p>
       </section>
     </li>
