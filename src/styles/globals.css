@@ -37,11 +37,11 @@
 /* Components Layer */
 @layer components {
     .btn {
-        @apply border border-black py-3 px-5 rounded-full w-fit
+        @apply border border-black py-3 px-5 rounded-full min-w-fit
     }
 
     .tag {
-        @apply border border-black py-2 px-4 rounded-full w-fit
+        @apply border border-black py-2 px-4 rounded-full min-w-fit
     }
 }
 
