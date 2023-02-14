@@ -35,7 +35,11 @@
 }
 
 /* Components Layer */
-@layer components {}
+@layer components {
+    .btn {
+        @apply border border-black py-4 px-6 rounded-full
+    }
+}
 
 /* Utilities Layer */
 @layer utilities {
