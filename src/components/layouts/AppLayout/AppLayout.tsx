@@ -1,4 +1,5 @@
 // Imports
+import Footer from "../../common/Footer/Footer";
 import Navbar from "../../common/Navbar/Navbar";
 import { IAppLayoutProps } from "./AppLayout.types";
 
@@ -10,9 +11,7 @@ const AppLayout = ({ children }: IAppLayoutProps) => {
         <Navbar />
       </header>
       <main className="page-width py-16">{children}</main>
-      <footer className="page-width">
-        <div>Footer</div>
-      </footer>
+      <Footer />
     </>
   );
 };
