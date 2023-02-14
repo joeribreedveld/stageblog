@@ -41,7 +41,7 @@
     }
 
     .tag {
-        @apply border border-black py-1 md:py-2 md:px-4 px-3 rounded-full min-w-fit
+        @apply border border-black py-1 md:py-2 md:px-4 px-3 rounded-full min-w-fit text-sm md:text-base
     }
 }
 

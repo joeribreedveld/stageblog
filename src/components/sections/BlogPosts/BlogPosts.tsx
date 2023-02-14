@@ -17,7 +17,7 @@ const BlogPosts = () => {
           title="Blog post title"
           tags={["Blog post tag1", "Blog post tag2"]}
           date="14 februari 2023"
-          description="Blog post description"
+          description="Blog post description dawlkdjawkld awdawd awdawd awd awdaw dawdawdawd awdawd wadwad..."
         />
         <BlogPost
           title="Blog post title"
@@ -44,7 +44,7 @@ const BlogPost = ({ title, date, tags, description }: IBlogPostProps) => {
         <section className="md:w-1/3">
           <p className="text-gray-500">{date}</p>
         </section>
-        <section className="flex flex-col gap-4 md:w-2/3 md:gap-8">
+        <section className="flex flex-col gap-6 md:w-2/3 md:gap-8">
           <section className="flex flex-col gap-4 md:gap-6">
             <h5>{title}</h5>
             <BlogPostTags tags={tags} />
