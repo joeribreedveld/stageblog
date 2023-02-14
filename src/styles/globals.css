@@ -52,6 +52,6 @@
     }
 
     .page-padding-y {
-        @apply md:py-32 py-16
+        @apply md:py-32 py-8
     }
 }
