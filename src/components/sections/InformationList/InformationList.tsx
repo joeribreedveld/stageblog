@@ -11,8 +11,19 @@ const InformationList = () => {
           title="E-mailadres"
           value="joeri.breedveld123@gmail.com"
         />
+        <InformationListItem
+          title="School e-mailadres"
+          value="32653@ma-web.nl"
+        />
         <InformationListItem title="Telefoonnummer" value="+31 6 80056004" />
+        <InformationListItem title="Stagebegeleider" value="Milos Despotovic" />
         <InformationListItem title="Bedrijfsnaam" value="CanvasHeroes" />
+        <InformationListItem title="Startdatum" value="21 november 2022" />
+        <InformationListItem title="Einddatum" value="20 maart 2023" />
+        <InformationListItem
+          title="Beschrijving"
+          value="Wij ontwikkelen custom apps en platformen voor bedrijven met een specifieke vraag waar geen standaard oplossing voor bestaat. Wij ademen digital en kunnen met ons team en partners vrijwel iedere uitdaging aan. Ons hart gaat echt sneller kloppen van uitdagingen binnen domeinen als gezondheid, energie, mobiliteit, non-profit, IoT, e-learning, e-commerce, custom interfaces en automatisering."
+        />
       </ul>
     </section>
   );

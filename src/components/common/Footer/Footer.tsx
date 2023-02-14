@@ -4,7 +4,7 @@
 const Footer = () => {
   return (
     <footer className="page-width">
-      <p>Designed & Built by Joeri Breedveld</p>
+      <p>Gemaakt door Joeri Breedveld</p>
     </footer>
   );
 };
