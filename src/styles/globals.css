@@ -6,27 +6,27 @@
 /* Base Layer */
 @layer base {
     h1 {
-        @apply text-5xl font-bold
+        @apply md:text-5xl font-bold text-4xl
     }
 
     h2 {
-        @apply text-4xl font-bold
+        @apply md:text-4xl font-bold text-3xl
     }
 
     h3 {
-        @apply text-3xl font-bold
+        @apply md:text-3xl font-bold text-2xl
     }
 
     h4 {
-        @apply text-2xl font-bold
+        @apply md:text-2xl font-bold text-xl
     }
 
     h5 {
-        @apply text-xl font-bold
+        @apply md:text-xl font-bold text-lg
     }
 
     h6 {
-        @apply text-lg font-bold
+        @apply text-lg font-bold 
     }
 
     body {
@@ -37,7 +37,7 @@
 /* Components Layer */
 @layer components {
     .btn {
-        @apply border border-black py-4 px-6 rounded-full w-fit
+        @apply border border-black py-3 px-5 rounded-full w-fit
     }
 
     .tag {
@@ -48,10 +48,10 @@
 /* Utilities Layer */
 @layer utilities {
     .page-width {
-        @apply max-w-screen-md mx-auto
+        @apply md:max-w-screen-md mx-auto px-4 md:px-0
     }
 
     .page-padding-y {
-        @apply py-32
+        @apply md:py-32 py-16
     }
 }
