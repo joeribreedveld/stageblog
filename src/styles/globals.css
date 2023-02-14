@@ -1,3 +1,49 @@
+/* Tailwind Directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Base Layer */
+@layer base {
+    h1 {
+        @apply text-5xl font-bold
+    }
+
+    h2 {
+        @apply text-4xl font-bold
+    }
+
+    h3 {
+        @apply text-3xl font-bold
+    }
+
+    h4 {
+        @apply text-2xl font-bold
+    }
+
+    h5 {
+        @apply text-xl font-bold
+    }
+
+    h6 {
+        @apply text-lg font-bold
+    }
+
+    body {
+        @apply page-padding-y
+    }
+}
+
+/* Components Layer */
+@layer components {}
+
+/* Utilities Layer */
+@layer utilities {
+    .page-width {
+        @apply max-w-screen-md mx-auto
+    }
+
+    .page-padding-y {
+        @apply py-32
+    }
+}

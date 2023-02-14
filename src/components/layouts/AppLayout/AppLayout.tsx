@@ -6,11 +6,11 @@ import { IAppLayoutProps } from "./AppLayout.types";
 const AppLayout = ({ children }: IAppLayoutProps) => {
   return (
     <>
-      <header>
+      <header className="page-width">
         <Navbar />
       </header>
-      <main>{children}</main>
-      <footer>
+      <main className="page-width">{children}</main>
+      <footer className="page-width">
         <div>Footer</div>
       </footer>
     </>
