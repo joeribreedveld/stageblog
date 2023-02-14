@@ -14,22 +14,22 @@ const BlogPosts = () => {
     <section>
       <ul className="flex flex-col gap-8">
         <BlogPost
-          title="Blog post title"
-          tags={["Blog post tag1", "Blog post tag2"]}
+          title="Stage blog week 1 en week 2"
+          tags={["ReactNative", "Tests"]}
           date="14 februari 2023"
-          description="Blog post description dawlkdjawkld awdawd awdawd awd awdaw dawdawdawd awdawd wadwad..."
+          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
         />
         <BlogPost
-          title="Blog post title"
-          tags={["Blog post tag", "Blog post tag"]}
-          date="14 februari 2023"
-          description="Blog post description"
+          title="Stage blog week 3 en week 4"
+          tags={["Next.js", "Crypto"]}
+          date="28 februari 2023"
+          description="Kaas is geel en als het niet geel is dan is het waarschijnlijk niet positief. Het is een lang bekend feit dat een lezer..."
         />
         <BlogPost
-          title="Blog post title"
-          tags={["Blog post tag", "Blog post tag"]}
-          date="14 februari 2023"
-          description="Blog post description"
+          title="Stage blog week 5 en week 6"
+          tags={["Samenwerken", "Webdev"]}
+          date="14 maart 2023"
+          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
         />
       </ul>
     </section>
@@ -62,7 +62,7 @@ const BlogPost = ({ title, date, tags, description }: IBlogPostProps) => {
 // Blog Post Tags
 const BlogPostTags = ({ tags }: IBlogPostTagsProps) => {
   return (
-    <ul className="flex gap-4">
+    <ul className="flex gap-3 md:gap-4">
       {tags.map((tag: TBlogPostTag) => (
         <li key={tag}>
           <BlogPostTag title={tag} />
