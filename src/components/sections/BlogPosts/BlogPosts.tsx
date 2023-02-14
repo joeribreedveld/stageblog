@@ -15,7 +15,7 @@ const BlogPosts = () => {
       <ul className="flex flex-col gap-8">
         <BlogPost
           title="Blog post title"
-          tags={["Blog post tag", "Blog post tag"]}
+          tags={["Blog post tag1", "Blog post tag2"]}
           date="14 februari 2023"
           description="Blog post description"
         />
@@ -64,7 +64,7 @@ const BlogPostTags = ({ tags }: IBlogPostTagsProps) => {
   return (
     <ul className="flex gap-4">
       {tags.map((tag: TBlogPostTag) => (
-        <li>
+        <li key={tag}>
           <BlogPostTag title={tag} />
         </li>
       ))}
