@@ -1,5 +1,25 @@
 // Imports
 import { IButtonProps } from "./Button.types";
+import { motion } from "framer-motion";
+
+// Framer
+const buttonVariants = {
+  hover: {
+    scale: 1.05,
+    transition: {
+      duration: 0.2,
+    },
+  },
+  tap: {
+    scale: 0.95,
+    transition: {
+      duration: 0.2,
+    },
+  },
+  initial: {
+    scale: 1,
+  },
+};
 
 // Functions
 const Button = ({
@@ -9,14 +29,18 @@ const Button = ({
   className,
 }: IButtonProps) => {
   return (
-    <button
+    <motion.button
+      variants={buttonVariants}
+      whileHover="hover"
+      whileTap="tap"
+      initial="initial"
       className={`${size === "small" ? "btn-small" : ""} ${"btn"} ${
         className ? className : ""
       }`}
       onClick={onClick}
     >
       {children}
-    </button>
+    </motion.button>
   );
 };
 

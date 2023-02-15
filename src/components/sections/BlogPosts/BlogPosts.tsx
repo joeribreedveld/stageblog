@@ -6,13 +6,60 @@ import {
   IBlogPostTagsProps,
   IBlogPostTagProps,
 } from "./BlogPosts.types";
+import { motion } from "framer-motion";
+// import { useMediaQuery } from "react-responsive";
+
+// Framer
+const blogPostsVariants = {
+  initial: {
+    opacity: 1,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+};
+
+const blogPostVariants = {
+  initial: {
+    x: -25,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.2,
+    },
+  },
+};
+
+// const noAnimationVariants = {
+//   initial: {
+//     opacity: 1,
+//     x: 0,
+//   },
+//   animate: {
+//     opacity: 1,
+//     x: 0,
+//   },
+// };
 
 // Functions
 // Blog Posts
 const BlogPosts = () => {
+  // const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
   return (
     <section>
-      <ul className="flex flex-col gap-8">
+      <motion.ul
+        variants={blogPostsVariants}
+        initial="initial"
+        animate="animate"
+        className="flex flex-col gap-8"
+      >
         <BlogPost
           title="Stage blog week 1 en week 2"
           tags={["ReactNative", "Tests"]}
@@ -31,15 +78,17 @@ const BlogPosts = () => {
           date="14 maart 2023"
           description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
         />
-      </ul>
+      </motion.ul>
     </section>
   );
 };
 
 // Blog Post
 const BlogPost = ({ title, date, tags, description }: IBlogPostProps) => {
+  // const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
   return (
-    <li>
+    <motion.li variants={blogPostVariants} key={title}>
       <article className="flex flex-col gap-4 border-b border-gray-200 pb-8 md:flex-row md:gap-16">
         <section className="md:w-1/3">
           <p className="text-gray-500">{date}</p>
@@ -55,7 +104,7 @@ const BlogPost = ({ title, date, tags, description }: IBlogPostProps) => {
           </Link>
         </section>
       </article>
-    </li>
+    </motion.li>
   );
 };
 
