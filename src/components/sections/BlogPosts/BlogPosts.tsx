@@ -7,7 +7,7 @@ import {
   IBlogPostTagProps,
 } from "./BlogPosts.types";
 import { motion } from "framer-motion";
-// import { useMediaQuery } from "react-responsive";
+import { useMediaQuery } from "react-responsive";
 
 // Framer
 const blogPostsVariants = {
@@ -36,26 +36,43 @@ const blogPostVariants = {
   },
 };
 
-// const noAnimationVariants = {
-//   initial: {
-//     opacity: 1,
-//     x: 0,
-//   },
-//   animate: {
-//     opacity: 1,
-//     x: 0,
-//   },
-// };
+const mobileBlogPostsVariants = {
+  initial: {
+    opacity: 1,
+    x: 0,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const mobileBlogPostVariants = {
+  initial: {
+    x: 0,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
 
 // Functions
 // Blog Posts
 const BlogPosts = () => {
-  // const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
     <section>
       <motion.ul
-        variants={blogPostsVariants}
+        variants={isMobile ? mobileBlogPostsVariants : blogPostsVariants}
         initial="initial"
         animate="animate"
         className="flex flex-col gap-8"
@@ -85,10 +102,13 @@ const BlogPosts = () => {
 
 // Blog Post
 const BlogPost = ({ title, date, tags, description }: IBlogPostProps) => {
-  // const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
-    <motion.li variants={blogPostVariants} key={title}>
+    <motion.li
+      variants={isMobile ? mobileBlogPostVariants : blogPostVariants}
+      key={title}
+    >
       <article className="flex flex-col gap-4 border-b border-gray-200 pb-8 md:flex-row md:gap-16">
         <section className="md:w-1/3">
           <p className="text-gray-500">{date}</p>

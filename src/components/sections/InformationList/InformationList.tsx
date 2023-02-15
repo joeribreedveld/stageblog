@@ -1,7 +1,7 @@
 // Imports
 import { IInformationListItemProps } from "./InformationList.types";
 import { motion } from "framer-motion";
-// import { useMediaQuery } from "react-responsive";
+import { useMediaQuery } from "react-responsive";
 
 // Framer
 const informationListVariants = {
@@ -30,25 +30,44 @@ const informationListItemVariants = {
   },
 };
 
-// const mobileInformationListVariants = {
-//   initial: {
-//     opacity: 1,
-//     x: 0,
-//   },
-//   animate: {
-//     opacity: 1,
-//     x: 0,
-//   },
-// };
+const mobileInformationListVariants = {
+  initial: {
+    opacity: 1,
+    x: 0,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const mobileInformationListItemVariants = {
+  initial: {
+    x: 0,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
 
 // Functions
 const InformationList = () => {
-  // const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
     <section>
       <motion.ul
-        variants={informationListVariants}
+        variants={
+          isMobile ? mobileInformationListVariants : informationListVariants
+        }
         initial="initial"
         animate="animate"
         className="flex flex-col gap-8"
@@ -77,11 +96,15 @@ const InformationList = () => {
 };
 
 const InformationListItem = ({ title, value }: IInformationListItemProps) => {
-  // const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
     <motion.li
-      variants={informationListItemVariants}
+      variants={
+        isMobile
+          ? mobileInformationListItemVariants
+          : informationListItemVariants
+      }
       key={title}
       className="flex flex-col gap-4 border-b border-gray-200 pb-8 md:flex-row md:gap-16"
     >
