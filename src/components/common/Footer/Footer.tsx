@@ -5,7 +5,7 @@ import { FiGithub, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
 // Functions
 const Footer = () => {
   return (
-    <footer className="page-width flex justify-between pb-16 md:pb-0">
+    <footer className="page-width flex flex-col justify-between gap-8 pb-16 md:flex-row md:gap-0 md:pb-0">
       <p>Gemaakt door Joeri Breedveld</p>
       <ul className="text- flex gap-8 text-gray-500">
         <li>
