@@ -50,7 +50,7 @@ const BlogPost = ({ title, date, tags, description }: IBlogPostProps) => {
             <BlogPostTags tags={tags} />
           </section>
           <p className="text-gray-500">{description}</p>
-          <Link href="/" className="text-cyan-700">
+          <Link href="/" className="w-fit text-cyan-700">
             Lees meer -&gt;
           </Link>
         </section>
