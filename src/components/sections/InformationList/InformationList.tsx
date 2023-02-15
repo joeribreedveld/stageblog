@@ -11,26 +11,26 @@ const informationListVariants = {
   animate: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08,
+      staggerChildren: 0.05,
     },
   },
 };
 
 const informationListItemVariants = {
   initial: {
-    x: -50,
+    x: -25,
     opacity: 0,
   },
   animate: {
     x: 0,
     opacity: 1,
     transition: {
-      duration: 0.3,
+      duration: 0.2,
     },
   },
 };
 
-const noAnimationVariants = {
+const mobileInformationListVariants = {
   initial: {
     opacity: 1,
     x: 0,
@@ -48,7 +48,7 @@ const InformationList = () => {
   return (
     <section>
       <motion.ul
-        variants={isMobile ? noAnimationVariants : informationListVariants}
+        variants={informationListVariants}
         initial="initial"
         animate="animate"
         className="flex flex-col gap-8"
@@ -81,7 +81,7 @@ const InformationListItem = ({ title, value }: IInformationListItemProps) => {
 
   return (
     <motion.li
-      variants={isMobile ? noAnimationVariants : informationListItemVariants}
+      variants={informationListItemVariants}
       key={title}
       className="flex flex-col gap-4 border-b border-gray-200 pb-8 md:flex-row md:gap-16"
     >

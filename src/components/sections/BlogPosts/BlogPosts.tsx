@@ -17,21 +17,21 @@ const blogPostsVariants = {
   animate: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.05,
     },
   },
 };
 
 const blogPostVariants = {
   initial: {
-    x: -100,
+    x: -25,
     opacity: 0,
   },
   animate: {
     x: 0,
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.2,
     },
   },
 };
@@ -55,7 +55,7 @@ const BlogPosts = () => {
   return (
     <section>
       <motion.ul
-        variants={isMobile ? noAnimationVariants : blogPostsVariants}
+        variants={blogPostsVariants}
         initial="initial"
         animate="animate"
         className="flex flex-col gap-8"
@@ -88,10 +88,7 @@ const BlogPost = ({ title, date, tags, description }: IBlogPostProps) => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
-    <motion.li
-      variants={isMobile ? noAnimationVariants : blogPostVariants}
-      key={title}
-    >
+    <motion.li variants={blogPostVariants} key={title}>
       <article className="flex flex-col gap-4 border-b border-gray-200 pb-8 md:flex-row md:gap-16">
         <section className="md:w-1/3">
           <p className="text-gray-500">{date}</p>
