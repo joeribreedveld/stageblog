@@ -1,6 +1,7 @@
 // Imports
 import { IInformationListItemProps } from "./InformationList.types";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 
 // Framer
@@ -11,21 +12,7 @@ const informationListVariants = {
   animate: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.05,
-    },
-  },
-};
-
-const informationListItemVariants = {
-  initial: {
-    x: -25,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.2,
+      staggerChildren: 0.2,
     },
   },
 };
@@ -39,21 +26,7 @@ const mobileInformationListVariants = {
     opacity: 1,
     x: 0,
     transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const mobileInformationListItemVariants = {
-  initial: {
-    x: 0,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.3,
+      staggerChildren: 0.5,
     },
   },
 };
@@ -64,14 +37,7 @@ const InformationList = () => {
 
   return (
     <section>
-      <motion.ul
-        variants={
-          isMobile ? mobileInformationListVariants : informationListVariants
-        }
-        initial="initial"
-        animate="animate"
-        className="flex flex-col gap-8"
-      >
+      <ul className="flex flex-col gap-8">
         <InformationListItem title="Naam" value="Joeri Breedveld" />
         <InformationListItem
           title="E-mailadres"
@@ -90,21 +56,54 @@ const InformationList = () => {
           title="Beschrijving"
           value="Wij ontwikkelen custom apps en platformen voor bedrijven met een specifieke vraag waar geen standaard oplossing voor bestaat. Wij ademen digital en kunnen met ons team en partners vrijwel iedere uitdaging aan. Ons hart gaat echt sneller kloppen van uitdagingen binnen domeinen als gezondheid, energie, mobiliteit, non-profit, IoT, e-learning, e-commerce, custom interfaces en automatisering."
         />
-      </motion.ul>
+      </ul>
     </section>
   );
 };
 
 const InformationListItem = ({ title, value }: IInformationListItemProps) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
+  const informationListItemVariants = {
+    initial: {
+      x: -100,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
+  const mobileInformationListItemVariants = {
+    initial: {
+      x: -50,
+      opacity: 0,
+    },
+    animate: {
+      x: isInView ? 0 : -50,
+      opacity: isInView ? 1 : 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
 
   return (
     <motion.li
+      ref={ref}
       variants={
         isMobile
           ? mobileInformationListItemVariants
           : informationListItemVariants
       }
+      initial="initial"
+      animate="animate"
       key={title}
       className="flex flex-col gap-4 border-b border-gray-200 pb-8 md:flex-row md:gap-16"
     >
