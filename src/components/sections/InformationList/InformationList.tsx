@@ -1,7 +1,7 @@
 // Imports
 import { IInformationListItemProps } from "./InformationList.types";
 import { motion } from "framer-motion";
-import { useMediaQuery } from "react-responsive";
+// import { useMediaQuery } from "react-responsive";
 
 // Framer
 const informationListVariants = {
@@ -30,20 +30,20 @@ const informationListItemVariants = {
   },
 };
 
-const mobileInformationListVariants = {
-  initial: {
-    opacity: 1,
-    x: 0,
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-  },
-};
+// const mobileInformationListVariants = {
+//   initial: {
+//     opacity: 1,
+//     x: 0,
+//   },
+//   animate: {
+//     opacity: 1,
+//     x: 0,
+//   },
+// };
 
 // Functions
 const InformationList = () => {
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  // const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
     <section>
@@ -77,7 +77,7 @@ const InformationList = () => {
 };
 
 const InformationListItem = ({ title, value }: IInformationListItemProps) => {
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  // const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
     <motion.li

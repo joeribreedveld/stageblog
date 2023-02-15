@@ -7,7 +7,7 @@ import {
   IBlogPostTagProps,
 } from "./BlogPosts.types";
 import { motion } from "framer-motion";
-import { useMediaQuery } from "react-responsive";
+// import { useMediaQuery } from "react-responsive";
 
 // Framer
 const blogPostsVariants = {
@@ -36,21 +36,21 @@ const blogPostVariants = {
   },
 };
 
-const noAnimationVariants = {
-  initial: {
-    opacity: 1,
-    x: 0,
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-  },
-};
+// const noAnimationVariants = {
+//   initial: {
+//     opacity: 1,
+//     x: 0,
+//   },
+//   animate: {
+//     opacity: 1,
+//     x: 0,
+//   },
+// };
 
 // Functions
 // Blog Posts
 const BlogPosts = () => {
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  // const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
     <section>
@@ -85,7 +85,7 @@ const BlogPosts = () => {
 
 // Blog Post
 const BlogPost = ({ title, date, tags, description }: IBlogPostProps) => {
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  // const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
     <motion.li variants={blogPostVariants} key={title}>
