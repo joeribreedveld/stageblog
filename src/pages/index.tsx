@@ -6,7 +6,7 @@ import BlogPosts from "../components/sections/BlogPosts/BlogPosts";
 const Home: NextPage = () => {
   return (
     <section className="flex flex-col gap-16">
-      <h2>Joeri Breedveld</h2>
+      <h2 className="font-semibold">Joeri Breedveld</h2>
       <BlogPosts />
     </section>
   );
