@@ -11,7 +11,9 @@ const Navbar = () => {
   return (
     <nav className="flex items-center justify-between">
       {pathname === "/" && (
-        <h3 className="font-medium">Stageblog CanvasHeroes</h3>
+        <h3 className="font-medium">
+          Stageblog <span className="hidden md:inline">CanvasHeroes</span>
+        </h3>
       )}
       {pathname === "/" && (
         <Link href="/information">
