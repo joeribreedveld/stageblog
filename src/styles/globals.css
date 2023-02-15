@@ -3,8 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 /* Base Layer */
 @layer base {
+    html {
+        @apply font-inter
+    }
+
     h1 {
         @apply md:text-5xl font-bold text-4xl
     }
