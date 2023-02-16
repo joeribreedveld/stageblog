@@ -9,6 +9,7 @@ const Home: NextPage = ({ posts }: any) => {
   return (
     <section className="flex flex-col gap-16">
       <h2 className="font-semibold">Joeri Breedveld</h2>
+      {/* Blog posts with passed markdown posts */}
       <BlogPosts posts={posts} />
     </section>
   );

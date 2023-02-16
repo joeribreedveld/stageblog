@@ -31,7 +31,7 @@ interface IPostProps {
   frontMatter: TPostType;
 }
 
-// Framer
+// Animations
 const postVariants = {
   initial: {
     x: -50,
@@ -51,12 +51,14 @@ const postVariants = {
 const Post = ({ source, frontMatter }: IPostProps) => {
   return (
     <section>
+      {/* Markdown top content */}
       <section className="mb-16 flex flex-col gap-4 border-b border-gray-200 pb-16">
         <h1>{frontMatter.title}</h1>
         <h6 className="text-gray-500">{frontMatter.date}</h6>
         <p>{frontMatter.description}</p>
         <BlogPostTags tags={frontMatter.tags} />
       </section>
+      {/* Markdown field */}
       <motion.section
         variants={postVariants}
         initial="initial"

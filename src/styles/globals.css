@@ -39,7 +39,7 @@
         @apply page-padding-y
     }
 
-    /* MDX Styles */
+    /* Markdown styles */
     .mdx-wrapper h2 {
         @apply mt-8 mb-4
     }

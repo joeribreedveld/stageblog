@@ -5,18 +5,20 @@ import {
   TBlogPostTag,
   IBlogPostTagsProps,
   IBlogPostTagProps,
+  IBlogPostsProps,
+  TPost,
 } from "./BlogPosts.types";
 import { motion, useInView } from "framer-motion";
-import { useMediaQuery } from "react-responsive";
 import { useRef } from "react";
 
 // Functions
 // Blog Posts
-const BlogPosts = ({ posts }: any) => {
+const BlogPosts = ({ posts }: IBlogPostsProps) => {
   return (
     <section>
       <ul className="flex flex-col gap-8">
-        {posts.map((post: any) => (
+        {/* Markdown posts map */}
+        {posts.map((post: TPost) => (
           <BlogPost
             key={post.title}
             title={post.title}
@@ -35,24 +37,9 @@ const BlogPosts = ({ posts }: any) => {
 const BlogPost = ({ title, date, tags, description, slug }: IBlogPostProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
-  // Framer motion animations
+  // Animations
   const blogPostVariants = {
-    initial: {
-      x: -50,
-      opacity: 0,
-    },
-    animate: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
-
-  const mobileBlogPostVariants = {
     initial: {
       x: -50,
       opacity: 0,
@@ -69,7 +56,7 @@ const BlogPost = ({ title, date, tags, description, slug }: IBlogPostProps) => {
   return (
     <motion.li
       ref={ref}
-      variants={isMobile ? mobileBlogPostVariants : blogPostVariants}
+      variants={blogPostVariants}
       initial="initial"
       animate={isInView ? "animate" : "initial"}
       key={title}
@@ -81,6 +68,7 @@ const BlogPost = ({ title, date, tags, description, slug }: IBlogPostProps) => {
         <section className="flex flex-col gap-6 md:w-2/3 md:gap-8">
           <section className="flex flex-col gap-4 md:gap-6">
             <h6 className="font-medium">{title}</h6>
+            {/* Tag list */}
             <BlogPostTags tags={tags} />
           </section>
           <p className="text-gray-500">{description}</p>
