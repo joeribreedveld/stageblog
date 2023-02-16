@@ -10,46 +10,12 @@ import { motion, useInView } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import { useRef } from "react";
 
-// Framer
-const blogPostsVariants = {
-  initial: {
-    opacity: 1,
-  },
-  animate: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.05,
-    },
-  },
-};
-
-const mobileBlogPostsVariants = {
-  initial: {
-    opacity: 1,
-    x: 0,
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
 // Functions
 // Blog Posts
 const BlogPosts = () => {
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
-
   return (
     <section>
-      <motion.ul
-        variants={isMobile ? mobileBlogPostsVariants : blogPostsVariants}
-        initial="initial"
-        animate="animate"
-        className="flex flex-col gap-8"
-      >
+      <ul className="flex flex-col gap-8">
         <BlogPost
           title="Stage blog week 1 en week 2"
           tags={["ReactNative", "Tests"]}
@@ -63,24 +29,54 @@ const BlogPosts = () => {
           description="Kaas is geel en als het niet geel is dan is het waarschijnlijk niet positief. Het is een lang bekend feit dat een lezer..."
         />
         <BlogPost
-          title="Stage blog week 5 en week 6"
+          title="Stage blo234g week 5 en week 6"
           tags={["Samenwerken", "Webdev"]}
           date="14 maart 2023"
           description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
         />
         <BlogPost
-          title="Stage blog week 5 en week 6"
+          title="Stage 3423blog week 5 en week 6"
           tags={["Samenwerken", "Webdev"]}
           date="14 maart 2023"
           description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
         />
         <BlogPost
-          title="Stage blog week 5 en week 6"
+          title="Stage3 blog week 5 en week 6"
           tags={["Samenwerken", "Webdev"]}
           date="14 maart 2023"
           description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
         />
-      </motion.ul>
+        <BlogPost
+          title="Stag23e blog week 5 en week 6"
+          tags={["Samenwerken", "Webdev"]}
+          date="14 maart 2023"
+          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
+        />
+        <BlogPost
+          title="Stage blo23423g week 5 en week 6"
+          tags={["Samenwerken", "Webdev"]}
+          date="14 maart 2023"
+          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
+        />
+        <BlogPost
+          title="Stage blog week 5 en wee234234k 6"
+          tags={["Samenwerken", "Webdev"]}
+          date="14 maart 2023"
+          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
+        />
+        <BlogPost
+          title="Stage blog 33423week 5 en week 6"
+          tags={["Samenwerken", "Webdev"]}
+          date="14 maart 2023"
+          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
+        />
+        <BlogPost
+          title="Stage blog week 2342345 en week 6"
+          tags={["Samenwerken", "Webdev"]}
+          date="14 maart 2023"
+          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
+        />
+      </ul>
     </section>
   );
 };
@@ -91,6 +87,7 @@ const BlogPost = ({ title, date, tags, description }: IBlogPostProps) => {
   const isInView = useInView(ref, { once: true });
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
+  // Framer motion animations
   const blogPostVariants = {
     initial: {
       x: -50,
@@ -111,8 +108,8 @@ const BlogPost = ({ title, date, tags, description }: IBlogPostProps) => {
       opacity: 0,
     },
     animate: {
-      x: isInView ? 0 : -50,
-      opacity: isInView ? 1 : 0,
+      x: 0,
+      opacity: 1,
       transition: {
         duration: 0.3,
       },
@@ -123,8 +120,8 @@ const BlogPost = ({ title, date, tags, description }: IBlogPostProps) => {
     <motion.li
       ref={ref}
       variants={isMobile ? mobileBlogPostVariants : blogPostVariants}
-      initial={isMobile ? "initial" : undefined}
-      animate={isMobile ? "animate" : undefined}
+      initial="initial"
+      animate={isInView ? "animate" : "initial"}
       key={title}
     >
       <article className="flex flex-col gap-4 border-b border-gray-200 pb-8 md:flex-row md:gap-16">
