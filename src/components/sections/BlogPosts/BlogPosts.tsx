@@ -6,8 +6,9 @@ import {
   IBlogPostTagsProps,
   IBlogPostTagProps,
 } from "./BlogPosts.types";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
+import { useRef } from "react";
 
 // Framer
 const blogPostsVariants = {
@@ -22,20 +23,6 @@ const blogPostsVariants = {
   },
 };
 
-const blogPostVariants = {
-  initial: {
-    x: -25,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.2,
-    },
-  },
-};
-
 const mobileBlogPostsVariants = {
   initial: {
     opacity: 1,
@@ -45,21 +32,7 @@ const mobileBlogPostsVariants = {
     opacity: 1,
     x: 0,
     transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const mobileBlogPostVariants = {
-  initial: {
-    x: 0,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.3,
+      staggerChildren: 0.2,
     },
   },
 };
@@ -95,6 +68,18 @@ const BlogPosts = () => {
           date="14 maart 2023"
           description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
         />
+        <BlogPost
+          title="Stage blog week 5 en week 6"
+          tags={["Samenwerken", "Webdev"]}
+          date="14 maart 2023"
+          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
+        />
+        <BlogPost
+          title="Stage blog week 5 en week 6"
+          tags={["Samenwerken", "Webdev"]}
+          date="14 maart 2023"
+          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
+        />
       </motion.ul>
     </section>
   );
@@ -102,11 +87,44 @@ const BlogPosts = () => {
 
 // Blog Post
 const BlogPost = ({ title, date, tags, description }: IBlogPostProps) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
+  const blogPostVariants = {
+    initial: {
+      x: -50,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
+  const mobileBlogPostVariants = {
+    initial: {
+      x: -50,
+      opacity: 0,
+    },
+    animate: {
+      x: isInView ? 0 : -50,
+      opacity: isInView ? 1 : 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
 
   return (
     <motion.li
+      ref={ref}
       variants={isMobile ? mobileBlogPostVariants : blogPostVariants}
+      initial={isMobile ? "initial" : undefined}
+      animate={isMobile ? "animate" : undefined}
       key={title}
     >
       <article className="flex flex-col gap-4 border-b border-gray-200 pb-8 md:flex-row md:gap-16">
