@@ -33,7 +33,6 @@ interface IPostProps {
 // Functions
 // Post page
 const Post = ({ source, frontMatter }: IPostProps) => {
-  console.log(frontMatter.tags);
   return (
     <section>
       <section className="mb-16 flex flex-col gap-4 border-b border-gray-200 pb-16">

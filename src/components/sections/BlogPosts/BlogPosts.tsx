@@ -12,7 +12,7 @@ import { useRef } from "react";
 
 // Functions
 // Blog Posts
-const BlogPosts = () => {
+const BlogPosts = ({ posts }: any) => {
   return (
     <section>
       <ul className="flex flex-col gap-8">
@@ -21,68 +21,25 @@ const BlogPosts = () => {
           tags={["ReactNative", "Tests"]}
           date="14 februari 2023"
           description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
+          slug="stage-blog-week-1-en-week-2"
         />
-        <BlogPost
-          title="Stage blog week 3 en week 4"
-          tags={["Next.js", "Crypto"]}
-          date="28 februari 2023"
-          description="Kaas is geel en als het niet geel is dan is het waarschijnlijk niet positief. Het is een lang bekend feit dat een lezer..."
-        />
-        <BlogPost
-          title="Stage blo234g week 5 en week 6"
-          tags={["Samenwerken", "Webdev"]}
-          date="14 maart 2023"
-          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
-        />
-        <BlogPost
-          title="Stage 3423blog week 5 en week 6"
-          tags={["Samenwerken", "Webdev"]}
-          date="14 maart 2023"
-          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
-        />
-        <BlogPost
-          title="Stage3 blog week 5 en week 6"
-          tags={["Samenwerken", "Webdev"]}
-          date="14 maart 2023"
-          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
-        />
-        <BlogPost
-          title="Stag23e blog week 5 en week 6"
-          tags={["Samenwerken", "Webdev"]}
-          date="14 maart 2023"
-          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
-        />
-        <BlogPost
-          title="Stage blo23423g week 5 en week 6"
-          tags={["Samenwerken", "Webdev"]}
-          date="14 maart 2023"
-          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
-        />
-        <BlogPost
-          title="Stage blog week 5 en wee234234k 6"
-          tags={["Samenwerken", "Webdev"]}
-          date="14 maart 2023"
-          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
-        />
-        <BlogPost
-          title="Stage blog 33423week 5 en week 6"
-          tags={["Samenwerken", "Webdev"]}
-          date="14 maart 2023"
-          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
-        />
-        <BlogPost
-          title="Stage blog week 2342345 en week 6"
-          tags={["Samenwerken", "Webdev"]}
-          date="14 maart 2023"
-          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
-        />
+        {posts.map((post: any) => (
+          <BlogPost
+            key={post.title}
+            title={post.title}
+            tags={post.tags}
+            date={post.date}
+            description={post.description}
+            slug={post.slug}
+          />
+        ))}
       </ul>
     </section>
   );
 };
 
 // Blog Post
-const BlogPost = ({ title, date, tags, description }: IBlogPostProps) => {
+const BlogPost = ({ title, date, tags, description, slug }: IBlogPostProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
@@ -134,7 +91,7 @@ const BlogPost = ({ title, date, tags, description }: IBlogPostProps) => {
             <BlogPostTags tags={tags} />
           </section>
           <p className="text-gray-500">{description}</p>
-          <Link href="/" className="w-fit text-cyan-700">
+          <Link href={`/posts/${slug}`} className="w-fit text-cyan-700">
             Lees meer -&gt;
           </Link>
         </section>

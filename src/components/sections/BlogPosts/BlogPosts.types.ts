@@ -5,6 +5,7 @@ interface IBlogPostProps {
   date: string;
   tags: TBlogPostTag[];
   description: string;
+  slug: string;
 }
 
 // Blog Post Tags

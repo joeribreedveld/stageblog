@@ -1,5 +1,5 @@
-import fs from "fs";
 import path from "path";
+import * as fs from "fs";
 
 export const POSTS_PATH = path.join(process.cwd(), "/public/posts");
 
