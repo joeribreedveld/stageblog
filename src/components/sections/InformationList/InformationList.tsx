@@ -2,12 +2,12 @@
 import { IInformationListItemProps } from "./InformationList.types";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { useMediaQuery } from "react-responsive";
 
 // Functions
 const InformationList = () => {
   return (
     <section>
+      {/* Information list */}
       <ul className="flex flex-col gap-8">
         <InformationListItem title="Naam" value="Joeri Breedveld" />
         <InformationListItem
@@ -35,23 +35,9 @@ const InformationList = () => {
 const InformationListItem = ({ title, value }: IInformationListItemProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
+  // Animations
   const informationListItemVariants = {
-    initial: {
-      x: -50,
-      opacity: 0,
-    },
-    animate: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
-
-  const mobileInformationListItemVariants = {
     initial: {
       x: -50,
       opacity: 0,
@@ -68,12 +54,7 @@ const InformationListItem = ({ title, value }: IInformationListItemProps) => {
   return (
     <motion.li
       ref={ref}
-      variants={
-        isMobile
-          ? mobileInformationListItemVariants
-          : informationListItemVariants
-      }
-      // if is not mobile dont use initial and animate
+      variants={informationListItemVariants}
       initial="initial"
       animate={isInView ? "animate" : "initial"}
       key={title}

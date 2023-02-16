@@ -2,7 +2,7 @@
 import { IButtonProps } from "./Button.types";
 import { motion } from "framer-motion";
 
-// Framer
+// Animations
 const buttonVariants = {
   hover: {
     scale: 1.05,
