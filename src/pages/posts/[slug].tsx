@@ -31,6 +31,12 @@ interface IPostProps {
   frontMatter: TPostType;
 }
 
+interface IGetStaticPropsProps {
+  params: {
+    slug: string;
+  };
+}
+
 // Animations
 const postVariants = {
   initial: {
@@ -53,7 +59,7 @@ const Post = ({ source, frontMatter }: IPostProps) => {
     <section>
       {/* Markdown top content */}
       <section className="mb-16 flex flex-col gap-4 border-b border-gray-200 pb-16">
-        <h1>{frontMatter.title}</h1>
+        <h1 className="font-semibold">{frontMatter.title}</h1>
         <h6 className="text-gray-500">{frontMatter.date}</h6>
         <p>{frontMatter.description}</p>
         <BlogPostTags tags={frontMatter.tags} />
@@ -90,7 +96,7 @@ const BlogPostTag = ({ title }: IBlogPostTagProps) => {
 };
 
 // Data fetching
-export const getStaticProps: GetStaticProps = async ({ params }: any) => {
+export const getStaticProps = async ({ params }: IGetStaticPropsProps) => {
   const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`);
   const source = fs.readFileSync(postFilePath);
 
@@ -125,7 +131,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = () => {
   const paths = postFilePaths
     .map((path) => path.replace(/\.mdx?$/, ""))
     .map((slug) => ({ params: { slug } }));

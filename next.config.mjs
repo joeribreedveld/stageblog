@@ -9,17 +9,6 @@
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      // don't resolve 'fs' module on the client to prevent this error on build --> Error: Can't resolve 'fs'
-      config.resolve.fallback = {
-        fs: false,
-        path: false,
-      };
-    }
-
-    return config;
-  },
 
   /**
    * If you have the "experimental: { appDir: true }" setting enabled, then you

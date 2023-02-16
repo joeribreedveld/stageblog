@@ -3,9 +3,10 @@ import { type NextPage } from "next";
 import BlogPosts from "../components/sections/BlogPosts/BlogPosts";
 import { getAllPosts } from "../lib/api";
 import { GetStaticProps } from "next";
+import { IBlogPostsProps } from "../components/sections/BlogPosts/BlogPosts.types";
 
 // Functions
-const Home: NextPage = ({ posts }: any) => {
+const Home = ({ posts }: IBlogPostsProps) => {
   return (
     <section className="flex flex-col gap-16">
       <h2 className="font-semibold">Joeri Breedveld</h2>
@@ -16,7 +17,7 @@ const Home: NextPage = ({ posts }: any) => {
 };
 
 // Data fetching
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = () => {
   const posts = getAllPosts(["date", "description", "tags", "title", "slug"]);
 
   return {
