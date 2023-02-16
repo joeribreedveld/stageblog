@@ -20,7 +20,7 @@ const Navbar = () => {
           <Button>{"Informatie"}</Button>
         </Link>
       )}
-      {pathname === "/information" && (
+      {pathname !== "/" && (
         <Link href="/">
           <Button>{"<- Terug"}</Button>
         </Link>

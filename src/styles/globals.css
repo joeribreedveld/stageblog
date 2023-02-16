@@ -38,6 +38,19 @@
     body {
         @apply page-padding-y
     }
+
+    /* MDX Styles */
+    .mdx-wrapper h2 {
+        @apply mt-8 mb-4
+    }
+
+    .mdx-wrapper h3 {
+        @apply mt-8 mb-4
+    }
+
+    .mdx-wrapper p {
+        @apply mt-4 mb-4
+    }
 }
 
 /* Components Layer */
