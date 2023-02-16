@@ -16,6 +16,7 @@ import {
   IBlogPostTagProps,
   IBlogPostTagsProps,
 } from "../../components/sections/BlogPosts/BlogPosts.types";
+import { motion } from "framer-motion";
 
 // Types
 type TPostType = {
@@ -30,6 +31,21 @@ interface IPostProps {
   frontMatter: TPostType;
 }
 
+// Framer
+const postVariants = {
+  initial: {
+    x: -50,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
+
 // Functions
 // Post page
 const Post = ({ source, frontMatter }: IPostProps) => {
@@ -39,17 +55,16 @@ const Post = ({ source, frontMatter }: IPostProps) => {
         <h1>{frontMatter.title}</h1>
         <h6 className="text-gray-500">{frontMatter.date}</h6>
         <p>{frontMatter.description}</p>
-        <ul className="flex gap-3 md:gap-4">
-          {frontMatter.tags.map((tag: TBlogPostTag) => (
-            <li key={tag}>
-              <BlogPostTag title={tag} />
-            </li>
-          ))}
-        </ul>
+        <BlogPostTags tags={frontMatter.tags} />
       </section>
-      <section className="mdx-wrapper border-b border-gray-200 pb-16">
+      <motion.section
+        variants={postVariants}
+        initial="initial"
+        animate="animate"
+        className="mdx-wrapper border-b border-gray-200 pb-16"
+      >
         <MDXRemote {...source} />
-      </section>
+      </motion.section>
     </section>
   );
 };

@@ -16,13 +16,6 @@ const BlogPosts = ({ posts }: any) => {
   return (
     <section>
       <ul className="flex flex-col gap-8">
-        <BlogPost
-          title="Stage blog week 1 en week 2"
-          tags={["ReactNative", "Tests"]}
-          date="14 februari 2023"
-          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point..."
-          slug="stage-blog-week-1-en-week-2"
-        />
         {posts.map((post: any) => (
           <BlogPost
             key={post.title}
