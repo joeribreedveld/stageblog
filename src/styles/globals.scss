@@ -42,11 +42,11 @@
   /* Markdown styles */
   .mdx-wrapper {
     h2 {
-      @apply mt-8 mb-2 text-2xl;
+      @apply mt-8 mb-2 text-2xl font-semibold;
     }
 
     h3 {
-      @apply mb-2 mt-8 text-xl;
+      @apply mb-2 mt-8 text-xl font-medium;
     }
 
     ul {
