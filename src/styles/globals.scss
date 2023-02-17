@@ -56,6 +56,10 @@
     hr {
       @apply my-8 border-[0.5] border-gray-200;
     }
+
+    p {
+      @apply mb-4;
+    }
   }
 }
 

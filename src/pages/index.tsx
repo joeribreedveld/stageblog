@@ -1,5 +1,4 @@
 // Imports
-import { type NextPage } from "next";
 import BlogPosts from "../components/sections/BlogPosts/BlogPosts";
 import { getAllPosts } from "../lib/api";
 import { GetStaticProps } from "next";

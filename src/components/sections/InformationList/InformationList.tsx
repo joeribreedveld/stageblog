@@ -3,6 +3,21 @@ import { IInformationListItemProps } from "./InformationList.types";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+// Animations
+const informationListItemVariants = {
+  initial: {
+    x: -50,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
+
 // Functions
 const InformationList = () => {
   return (
@@ -35,21 +50,6 @@ const InformationList = () => {
 const InformationListItem = ({ title, value }: IInformationListItemProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-
-  // Animations
-  const informationListItemVariants = {
-    initial: {
-      x: -50,
-      opacity: 0,
-    },
-    animate: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
 
   return (
     <motion.li
