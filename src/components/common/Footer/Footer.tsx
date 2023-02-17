@@ -13,6 +13,7 @@ const Footer = () => {
             href="https://github.com/joeribreedveld"
             target="_blank"
             rel="noreferrer"
+            aria-label="GitHub"
           >
             <FiGithub size={24} />
           </Link>
@@ -22,17 +23,21 @@ const Footer = () => {
             href="https://www.linkedin.com/in/joeribreedveld/"
             target="_blank"
             rel="noreferrer"
+            aria-label="LinkedIn"
           >
             <FiLinkedin size={24} />
           </Link>
         </li>
         <li>
-          <Link href="mailto:joeri.breedveld123@gmail.com">
+          <Link
+            href="mailto:joeri.breedveld123@gmail.com"
+            aria-label="E-mailadres"
+          >
             <FiMail size={24} />
           </Link>
         </li>
         <li>
-          <Link href="tel:+31680056004">
+          <Link href="tel:+31680056004" aria-label="Telefoonnummer">
             <FiPhone size={24} />
           </Link>
         </li>

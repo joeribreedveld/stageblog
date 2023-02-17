@@ -67,7 +67,7 @@ const BlogPost = ({ title, date, tags, description, slug }: IBlogPostProps) => {
         </section>
         <section className="flex flex-col gap-6 md:w-2/3 md:gap-8">
           <section className="flex flex-col gap-4 md:gap-6">
-            <h6 className="font-medium">{title}</h6>
+            <h3 className="text-lg font-medium">{title}</h3>
             {/* Tag list */}
             <BlogPostTags tags={tags} />
           </section>
