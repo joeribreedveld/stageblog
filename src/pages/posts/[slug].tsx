@@ -59,8 +59,10 @@ const Post = ({ source, frontMatter }: IPostProps) => {
     <section>
       {/* Markdown top content */}
       <section className="mb-16 flex flex-col gap-4 border-b border-gray-200 pb-16">
-        <h1 className="font-semibold">{frontMatter.title}</h1>
-        <h6 className="text-gray-500">{frontMatter.date}</h6>
+        <h2 className="text-2xl font-semibold md:mb-2 md:text-4xl">
+          {frontMatter.title}
+        </h2>
+        <p className="text-lg font-medium text-gray-500">{frontMatter.date}</p>
         <p>{frontMatter.description}</p>
         <BlogPostTags tags={frontMatter.tags} />
       </section>
