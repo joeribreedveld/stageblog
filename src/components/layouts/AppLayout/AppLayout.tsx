@@ -31,6 +31,7 @@ const AppLayout = ({ children }: IAppLayoutProps) => {
           property="og:url"
           content="https://stageblog.joeribreedveld.nl/"
         />
+        <meta property="og:image" content="/images/og-image.jpg" />
         <meta property="og:site_name" content="Stageblog - Joeri Breedveld" />
         <meta name="robots" content="all" />
         <meta name="googlebot" content="noindex,nofollow" />
