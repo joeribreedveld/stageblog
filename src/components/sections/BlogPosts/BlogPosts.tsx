@@ -11,6 +11,21 @@ import {
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+// Animations
+const blogPostVariants = {
+  initial: {
+    x: -50,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
+
 // Functions
 // Blog Posts
 const BlogPosts = ({ posts }: IBlogPostsProps) => {
@@ -38,21 +53,6 @@ const BlogPost = ({ title, date, tags, description, slug }: IBlogPostProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  // Animations
-  const blogPostVariants = {
-    initial: {
-      x: -50,
-      opacity: 0,
-    },
-    animate: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
-
   return (
     <motion.li
       ref={ref}
@@ -72,7 +72,10 @@ const BlogPost = ({ title, date, tags, description, slug }: IBlogPostProps) => {
             <BlogPostTags tags={tags} />
           </section>
           <p className="text-gray-500">{description}</p>
-          <Link href={`/posts/${slug}`} className="w-fit text-cyan-700">
+          <Link
+            href={`/posts/${slug}`}
+            className="w-fit text-cyan-700 hover:text-cyan-900"
+          >
             Lees meer -&gt;
           </Link>
         </section>
