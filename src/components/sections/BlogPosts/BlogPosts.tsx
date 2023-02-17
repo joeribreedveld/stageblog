@@ -84,7 +84,7 @@ const BlogPost = ({ title, date, tags, description, slug }: IBlogPostProps) => {
 // Blog Post Tags
 const BlogPostTags = ({ tags }: IBlogPostTagsProps) => {
   return (
-    <ul className="flex gap-3 md:gap-4">
+    <ul className="flex flex-wrap gap-3 md:gap-4">
       {tags.map((tag: TBlogPostTag) => (
         <li key={tag}>
           <BlogPostTag title={tag} />
