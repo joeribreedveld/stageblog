@@ -62,7 +62,9 @@ const Post = ({ source, frontMatter }: IPostProps) => {
         <h2 className="text-2xl font-semibold md:mb-2 md:text-4xl">
           {frontMatter.title}
         </h2>
-        <p className="text-lg font-medium text-gray-500">{frontMatter.date}</p>
+        <p className="font-medium text-gray-500 md:text-lg">
+          {frontMatter.date}
+        </p>
         <p>{frontMatter.description}</p>
         <BlogPostTags tags={frontMatter.tags} />
       </section>
