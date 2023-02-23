@@ -12,27 +12,27 @@
   }
 
   h1 {
-    @apply text-4xl font-bold md:text-5xl;
+    @apply text-4xl font-medium;
   }
 
   h2 {
-    @apply text-3xl font-bold md:text-4xl;
+    @apply text-2xl font-medium;
   }
 
   h3 {
-    @apply text-2xl font-bold md:text-3xl;
+    @apply text-xl font-medium;
   }
 
   h4 {
-    @apply text-xl font-bold md:text-2xl;
+    @apply text-lg font-medium;
   }
 
   h5 {
-    @apply text-xl font-bold;
+    @apply text-base font-medium;
   }
 
   h6 {
-    @apply text-lg font-bold;
+    @apply text-sm font-medium;
   }
 
   body {
@@ -42,11 +42,11 @@
   /* Markdown styles */
   .mdx-wrapper {
     h2 {
-      @apply mt-8 mb-2 text-2xl font-semibold;
+      @apply mt-8 mb-2 text-2xl;
     }
 
     h3 {
-      @apply mb-2 mt-8 text-xl font-medium;
+      @apply mb-2 mt-8 text-xl;
     }
 
     ul {

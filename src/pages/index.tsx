@@ -8,7 +8,7 @@ import { IBlogPostsProps } from "../components/sections/BlogPosts/BlogPosts.type
 const Home = ({ posts }: IBlogPostsProps) => {
   return (
     <section className="flex flex-col gap-16">
-      <h2 className="font-semibold">Joeri Breedveld</h2>
+      <h2>Joeri Breedveld</h2>
       {/* Blog posts with passed markdown posts */}
       <BlogPosts posts={posts} />
     </section>

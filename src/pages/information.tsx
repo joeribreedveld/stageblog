@@ -6,7 +6,7 @@ import InformationList from "../components/sections/InformationList/InformationL
 const Information: NextPage = () => {
   return (
     <section className="flex flex-col gap-16">
-      <h2 className="font-semibold">Informatie</h2>
+      <h2>Informatie</h2>
       <InformationList />
     </section>
   );

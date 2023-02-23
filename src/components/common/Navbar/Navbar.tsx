@@ -12,9 +12,9 @@ const Navbar = () => {
     <nav className="flex items-center justify-between">
       {/* Home */}
       {pathname === "/" && (
-        <h3 className="font-medium">
+        <h2>
           Stageblog <span className="hidden md:inline">CanvasHeroes</span>
-        </h3>
+        </h2>
       )}
       {/* Home */}
       {pathname === "/" && (
