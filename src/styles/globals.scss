@@ -8,7 +8,7 @@
 /* Base Layer */
 @layer base {
   html {
-    @apply font-inter;
+    @apply font-inter text-[#24292f];
   }
 
   h1 {
@@ -66,11 +66,11 @@
 /* Components Layer */
 @layer components {
   .btn {
-    @apply min-w-fit rounded-full border border-black py-3 px-5;
+    @apply min-w-fit rounded-full border border-[#24292f] py-3 px-5;
   }
 
   .tag {
-    @apply min-w-fit rounded-full border border-black py-1 px-3 text-sm md:py-2 md:px-4 md:text-base;
+    @apply min-w-fit rounded-full bg-gray-100 py-2 px-4 text-sm text-gray-700;
   }
 }
 
