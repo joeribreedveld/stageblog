@@ -17,7 +17,27 @@ const Home = ({ posts }: IBlogPostsProps) => {
 
 // Data fetching
 export const getStaticProps: GetStaticProps = () => {
-  const posts = getAllPosts(["date", "description", "tags", "title", "slug"]);
+  const result = getAllPosts([
+    "date",
+    "description",
+    "tags",
+    "title",
+    "slug",
+    "id",
+  ]);
+  // sort by id
+  const posts = result.sort((a, b) => {
+    if (a.id && b.id) {
+      if (a.id < b.id) {
+        return -1;
+      } else {
+        return 1;
+      }
+    } else {
+      // handle case where one or both dates are undefined
+      return 0;
+    }
+  });
 
   return {
     props: { posts },
